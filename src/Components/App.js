@@ -18,12 +18,10 @@ class App extends Component {
     
   }
 
-  fetchData = () => {
-    axios.get('https://api.unsplash.com/photos/random?count=8' + 
+  fetchData = (query) => {
+    axios.get(`https://api.unsplash.com/search/photos?per_page=8&query=${query}` + 
     `&client_id=e5fad60ae18ffcbe62cea64dd2f555033cd9bc323c9b07aed4082e2c327b9ac6`)
-      .then( response => this.setState({
-        photos: response.data
-      }))
+      .then( response => this.setState({ photos: response.data.results }))
       .catch( error => {
         console.log('Error fetching and parsing data', error);
       });
