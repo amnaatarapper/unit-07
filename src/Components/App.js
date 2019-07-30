@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 
 
@@ -17,17 +17,18 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <BrowserRouter>
-          <SearchForm />
-          <Nav />
 
+        
+        <SearchForm />          
+        <Nav />
+          
+        <Switch>
 
-          <Switch>
-            <Route path="/:name" component={PhotoContainer} />
+          <Route path="/:name" component={PhotoContainer} />
 
-          </Switch>
+        </Switch>
 
-        </BrowserRouter>
+        
         
 
       </div>
