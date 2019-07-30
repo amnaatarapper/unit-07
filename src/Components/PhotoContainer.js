@@ -7,7 +7,6 @@ import apiKey from '../config';
 import loading from './loading.svg';
 
 class PhotoContainer extends Component {
-
     
     state = {
         photos: [],
@@ -15,7 +14,7 @@ class PhotoContainer extends Component {
     };
     
     fetchData = (query) => {
-        axios.get(`https://api.unsplash.com/search/photos?per_page=8&query=${query}` + 
+        axios.get(`https://api.unsplash.com/search/photos?per_page=24&query=${query}` + 
         `&client_id=${apiKey}`)
           .then( response => this.setState({ 
             photos: response.data.results,
@@ -25,7 +24,6 @@ class PhotoContainer extends Component {
           });
       }
 
-    
     componentDidMount() {
         this.fetchData(this.props.match.params.name)
     }
@@ -35,22 +33,14 @@ class PhotoContainer extends Component {
           this.fetchData(this.props.match.params.name);
         }
     }  
-    
-    
+
     render() {
-        
-        
         return (
             <div className="photo-container">
                 <h2>{(this.state.isLoading) ? '' : `Results on ${this.props.match.params.name}`}</h2>
                 <ul>
                 {
-                    (this.state.photos.length > 0 ) ?
-                        this.state.photos.map( photo => <PhotoElement src={photo.urls.regular} alt={photo.alt_description} key={photo.id}/> ) 
-                        : 
-                        (this.state.isLoading) ? <img src={loading} height="100px" width="100px" alt="loading" />
-                                                : 
-                                                <NotFound />
+                    (this.state.photos.length > 0 ) ? this.state.photos.map( photo => <PhotoElement src={photo.urls.regular} alt={photo.alt_description} key={photo.id}/> ) : (this.state.isLoading) ? <img src={loading} height="100px" width="100px" alt="loading" /> : <NotFound />
                 }
                 </ul>
             </div>

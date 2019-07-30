@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const NotFound = () => {
     
     return (
@@ -9,8 +8,6 @@ const NotFound = () => {
             <p>You search did not return any results. Please try again.</p>
         </li>
     );
-
-
 }
 
 export default NotFound;
