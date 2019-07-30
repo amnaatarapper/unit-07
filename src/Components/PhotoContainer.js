@@ -4,6 +4,7 @@ import axios from 'axios';
 import PhotoElement from './PhotoElement';
 import NotFound from './NotFound';
 import apiKey from '../config';
+import loading from './loading.svg';
 
 class PhotoContainer extends Component {
 
@@ -46,7 +47,9 @@ class PhotoContainer extends Component {
                     (data.length > 0 ) ?
                         data.map( photo => <PhotoElement src={photo.urls.regular} alt={photo.alt_description} key={photo.id}/> ) 
                         : 
-                        (this.state.isLoading) ? <h2 style={{textAlign: "center"}}>Loading...</h2> : <NotFound />
+                        (this.state.isLoading) ? <img src={loading} height="100px" width="100px" alt="loading" />
+                                                : 
+                                                <NotFound />
                 }
                 </ul>
             </div>
