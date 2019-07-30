@@ -23,15 +23,14 @@ class PhotoContainer extends Component {
           });
       }
 
-   match = this.props.match.params.name;
-    
-
     componentWillMount() {
-        this.fetchData(this.match)
+        const match = this.props.match.params.name
+        this.fetchData(match)
     }
 
     componentDidUpdate() {
-        this.fetchData(this.match)
+        const match = this.props.match.params.name
+        this.fetchData(match)
     }
 
 
@@ -40,7 +39,7 @@ class PhotoContainer extends Component {
         
         return (
             <div className="photo-container">
-                <h2>{(this.state.isLoading) ? '' : `Results on ${this.match}`}</h2>
+                <h2>{(this.state.isLoading) ? '' : `Results on ${this.props.match.params.name}`}</h2>
                 <ul>
                 {
                     (data.length > 0 ) ?
@@ -55,5 +54,7 @@ class PhotoContainer extends Component {
     }
         
 }
+    
+
 
 export default PhotoContainer;
