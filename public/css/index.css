@@ -81,16 +81,37 @@ input {
 
 .photo-container ul img {
   width: 100%;
-  transform: scale(1.25);
+  transform: scale(1.5);
   transition: transform 1.25s;
 }
 
 .photo-container li:hover img {
-  transform: scale(1.65);
+  transform: scale(1.8);
+}
+
+/* My styles */
+
+.img-loader {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:70px;
+  width:70px;
+}
+
+hr {
+  width: 30%;
+  height: 1px;
+  background-color: #438bbd;
+}
+
+.welcome p {
+  color: #438bbd
 }
 
 .photo-container .not-found {
   width: 100%;
+  
 }
 
 @media only screen and (max-width: 767px)  {
@@ -123,3 +144,5 @@ input {
     width: 100px;
   }
 }
+
+

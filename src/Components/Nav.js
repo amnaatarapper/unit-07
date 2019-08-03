@@ -11,7 +11,6 @@ const Nav = () => {
                 <li><NavLink to='/beach'>Beach</NavLink></li>
                 <li><NavLink to='/waterfall'>Waterfall</NavLink></li>
                 <li><NavLink to='/buildings'>Building</NavLink></li>
-
             </ul>
       </nav>
     );

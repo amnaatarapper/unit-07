@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SearchForm from './SearchForm';
 import Nav from './Nav';
 import PhotoContainer from './PhotoContainer';
+import Welcome from './Welcome';
 
 class App extends Component {
   render() {
@@ -13,8 +14,9 @@ class App extends Component {
       <BrowserRouter>
         <SearchForm />          
         <Nav />
-
+        
         <Switch>
+          <Route exact path="/" component={Welcome} />
           <Route path="/:name" component={PhotoContainer} />
         </Switch>
       </BrowserRouter>     
